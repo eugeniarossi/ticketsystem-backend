@@ -17,10 +17,9 @@ return new class extends Migration
             $table->id();
 
             $table->string('title', 40);
-            $table->unsignedBigInteger('message_id');
-            $table->string('category');
+            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('created_by');
-            $table->boolean('closed')->default(false);;
+            $table->boolean('closed')->default(false);
 
             $table->timestamps();
         });

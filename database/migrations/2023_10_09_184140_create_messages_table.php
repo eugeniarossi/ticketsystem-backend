@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('ticket_id'); // chiave esterna per il ticket
             $table->unsignedBigInteger('user_id'); // chiave esterna per l'utente che ha scritto il messaggio
             $table->text('content');
+            
             $table->timestamps();
         });
     }
