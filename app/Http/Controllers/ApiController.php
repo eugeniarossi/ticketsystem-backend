@@ -10,7 +10,7 @@ class ApiController extends Controller
 {
     public function index()
     {
-        $tickets = Ticket::all();
+        $tickets = Ticket::with('category')->get();
         return response()->json($tickets);
     }
 }
