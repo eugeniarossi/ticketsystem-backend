@@ -9,11 +9,18 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    protected $table = 'tickets'; // Specifica il nome della tabella
+    protected $table = 'tickets';
 
-    protected $fillable = ['title', 'message_id', 'category', 'created_by', 'closed']; // Specifica i campi che possono essere assegnati in massa
+    protected $fillable = ['title', 'message_id', 'category', 'created_by', 'closed']; 
 
-    public function ticket() {
-        return $this->belongsTo(Ticket::class);
+    // relazione one to many con message
+    public function message() {
+        return $this->hasMany(Message::class);
     }
+
+    // relazione many to one con category
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+    
 }
